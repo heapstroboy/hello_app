@@ -1,32 +1,12 @@
+// add the following line and replace necessary values if you are not loading the library implicitly
+// @Library('my-library@master') _
+
 pipeline {
-    agent {
-        docker {
-            image 'maven:3-alpine'
-            args '-v /root/.m2:/root/.m2'
-        }
-    }
-    options {
-        skipStagesAfterUnstable()
-    }
+    agent any
     stages {
-        stage('Build') {
+        stage('build') {
             steps {
-                sh 'mvn -B -DskipTests clean package'
-            }
-        }
-        stage('Test') {
-            steps {
-                sh 'mvn test'
-            }
-            post {
-                always {
-                    junit 'target/surefire-reports/*.xml'
-                }
-            }
-        }
-        stage('Deliver') {
-            steps {
-                sh './jenkins/scripts/deliver.sh'
+                ex_msbuild 'some/path/to.sln'
             }
         }
     }
