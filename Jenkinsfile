@@ -1,3 +1,3 @@
-@Library('hello-pipline-library@master') _
+@Library('hello-pipline-library') _
 
 build([])
