@@ -10,7 +10,7 @@ public class HelloService {
 
     @GetMapping()
     public String getHello(){
-        return "Hello World pipeline";
+        return "Hello World!";
     }
 
 
