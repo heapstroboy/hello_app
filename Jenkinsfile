@@ -15,6 +15,9 @@ pipeline {
         script {
           docker.build registry + ":$BUILD_NUMBER"
         }
+        script{
+          docker.push registry
+        }
       }
     }
   }
