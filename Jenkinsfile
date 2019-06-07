@@ -15,8 +15,14 @@ pipeline {
         script {
           docker.build registry + ":$BUILD_NUMBER"
         }
-        script{
-          docker.push registry
+      }
+    }
+  }
+  stage('Deploy Image') {
+    steps{
+      script {
+        docker.withRegistry( '', registryCredential ) {
+          dockerImage.push()
         }
       }
     }
