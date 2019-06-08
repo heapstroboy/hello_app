@@ -5,10 +5,6 @@ pipeline {
   }
   agent any
   stages {
-    stage('Cloning Git') {
-       steps {
-         git 'https://github.com/heapstroboy/hello_app.git'
-          }
     stage('Build') {
        steps {
            sh 'mvn clean install'
