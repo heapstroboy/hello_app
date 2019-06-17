@@ -1,7 +1,7 @@
 pipeline {
     environment {
         registry = "heapstroboy/hello-service"
-        registryCredential = 'dockerhub'
+        registryCredential = 'artifactoryPassword'
   }
   agent any
   stages {
