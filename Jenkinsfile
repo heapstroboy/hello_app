@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        registry = "docker_hub_heapstroboy/hello-service"
+        registry = "heapstroboy/hello-service"
         registryCredential = 'dockerhub'
   }
   agent any
